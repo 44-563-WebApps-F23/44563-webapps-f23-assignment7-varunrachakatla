@@ -43,7 +43,8 @@
   }
 
   function startTime(){
-    for (let i = 0; i < 9; i++) {
+    var maxTimer  = 2 +  Math.floor(Math.random() * 9);
+    for (let i = 0; i < maxTimer+1; i++) {
         setTimeout(function(){
             document.getElementById('counter').innerHTML = i
         }, (8-i)*1000);
@@ -56,8 +57,9 @@
             var endTime  = Date.now();
             let elapsedTime = endTime - reactTime
             document.getElementById('target').innerHTML = "Time was "+ elapsedTime+ " milliseconds";
+            reactTime = undefined;
         }
-    }, 8000)
+    }, (maxTimer+1)*1000)
 
   }
   </script>

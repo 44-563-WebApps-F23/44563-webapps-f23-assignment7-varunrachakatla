@@ -51,6 +51,7 @@
 
     <button type="button" class="btn btn-primary" onclick="addFront()">Add front</button>
     <button type="button" class="btn btn-primary" onclick="remove()">Remove</button>
+    <button type="button" class="btn btn-primary" onclick="swapElements()">Swap</button>
 </body>
 <script>
     function makeNewDiv() {
@@ -79,6 +80,18 @@
         /* add it to the container */
         let container = document.getElementById('target')
         container.insertBefore(element,container.firstChild);
+    }
+
+    function swapElements(){
+        var mergerItems = document.getElementsByClassName("merger");
+        var index_1 = Math.floor(Math.random() * mergerItems.length);
+        var index_2 = Math.floor(Math.random() * mergerItems.length);
+        if(index_1 === index_2){
+            swapElements();
+        }    
+        else{
+            mergerItems[index_2].parentNode.insertBefore(mergerItems[index_2], mergerItems[index_1]);
+        }
     }
 </script>
 
